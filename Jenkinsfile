@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        AWS_ACCESS_KEY_ID = credentials('jenkins-aws-credentials')
-    }
-
     stages {
 
         stage('Clone Repository') {
@@ -25,7 +21,7 @@ pipeline {
                     s3prefix: 'deploy',
                     deploymentGroupAppspec: false,
                     waitForCompletion: true,
-                    credentials: 'jenkins-aws-credentials'
+                    credentials: 'jenkins'
                 ])
             }
         }
