@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        AWS_ACCESS_KEY_ID = credentials('jenkins-aws-credentials')
+    }
+
     stages {
 
         stage('Clone Repository') {
