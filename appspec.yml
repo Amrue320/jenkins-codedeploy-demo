@@ -4,9 +4,3 @@ os: linux
 files:
   - source: /
     destination: /var/www/html
-
-hooks:
-  AfterInstall:
-    - location: scripts/start.sh
-      timeout: 300
-      runas: root
