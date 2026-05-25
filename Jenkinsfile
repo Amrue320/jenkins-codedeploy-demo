@@ -20,7 +20,8 @@ pipeline {
                     s3bucket: 'amruthesh-bucket',
                     s3prefix: 'deploy',
                     deploymentGroupAppspec: false,
-                    waitForCompletion: true
+                    waitForCompletion: true,
+                    credentials: 'jenkins-aws-credentials'
                 ])
             }
         }
