@@ -16,10 +16,11 @@ pipeline {
                     $class: 'AWSCodeDeployPublisher',
                     applicationName: 'amruthesh-JenkinsCodeDeployApp',
                     deploymentGroupName: 'amruthesh-JenkinsDeploymentGroup',
-                    deploymentConfig: 'CodeDeployDefault.AllAtOnce',
                     region: 'ap-south-2',
                     s3bucket: 'amruthesh-bucket',
-                    s3prefix: 'deploy'
+                    s3prefix: 'deploy',
+                    deploymentGroupAppspec: false,
+                    waitForCompletion: true
                 ])
             }
         }
