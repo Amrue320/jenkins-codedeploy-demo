@@ -12,14 +12,15 @@ pipeline {
 
         stage('Deploy to CodeDeploy') {
             steps {
-                awsCodeDeploy(
-                    applicationName: 'JenkinsCodeDeployApp',
-                    deploymentGroupName: 'JenkinsDeploymentGroup',
-                    deploymentConfig: 'CodeDeployDefault.OneAtATime',
+                step([
+                    $class: 'AWSCodeDeployPublisher',
+                    applicationName: 'amruthesh-JenkinsCodeDeployApp',
+                    deploymentGroupName: 'amruthesh-JenkinsDeploymentGroup',
+                    deploymentConfig: 'CodeDeployDefault.AllAtOnce',
                     region: 'ap-south-2',
-                    s3bucket: 'YOUR_BUCKET_NAME',
+                    s3bucket: 'amruthesh-bucket',
                     s3prefix: 'deploy'
-                )
+                ])
             }
         }
     }
