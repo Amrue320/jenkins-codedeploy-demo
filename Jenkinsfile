@@ -5,7 +5,8 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Amrue320/jenkins-codedeploy-demo.git'
+                git branch: 'main',
+                url: 'https://github.com/Amrue320/jenkins-codedeploy-demo.git'
             }
         }
 
@@ -15,8 +16,8 @@ pipeline {
                     applicationName: 'JenkinsCodeDeployApp',
                     deploymentGroupName: 'JenkinsDeploymentGroup',
                     deploymentConfig: 'CodeDeployDefault.OneAtATime',
-                    region: 'ap-south-1',
-                    s3bucket: 'your-s3-bucket',
+                    region: 'ap-south-2',
+                    s3bucket: 'YOUR_BUCKET_NAME',
                     s3prefix: 'deploy'
                 )
             }
